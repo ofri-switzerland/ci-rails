@@ -23,3 +23,6 @@ RUN gem update --system && gem install bundler \
     && wget -q https://github.com/jwilder/dockerize/releases/download/v$DOCKERIZE_VERSION/dockerize-linux-amd64-v$DOCKERIZE_VERSION.tar.gz && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-v$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-v$DOCKERIZE_VERSION.tar.gz
 
 USER circleci
+
+RUN git clone --depth 1 https://github.com/pyenv/pyenv.git ~/.pyenv \
+    && PYTHON_CONFIGURE_OPTS='--enable-shared' ~/.pyenv/bin/pyenv install 3.7.2
