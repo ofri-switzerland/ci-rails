@@ -1,4 +1,4 @@
-FROM circleci/ruby:2.7.0
+FROM circleci/ruby:2.7.1
 
 ENV DOCKERIZE_VERSION 0.6.1
 ENV NODE_VERSION 12.16.0
@@ -18,7 +18,7 @@ RUN gem update --system && gem install bundler \
     && apt-get update \
     && apt-get install --no-install-recommends -y build-essential \
     default-mysql-client ruby-chromedriver-helper xvfb fonts-freefont-ttf ghostscript \
-    libfreetype6 libfreetype6-dev libfontconfig ttf-mscorefonts-installer \
+    libfreetype6 libfreetype6-dev libfontconfig ttf-mscorefonts-installer liblz4-tool \
     && rm -rf /var/lib/apt/lists/* \
     && wget -q https://github.com/jwilder/dockerize/releases/download/v$DOCKERIZE_VERSION/dockerize-linux-amd64-v$DOCKERIZE_VERSION.tar.gz && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-v$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-v$DOCKERIZE_VERSION.tar.gz
 
