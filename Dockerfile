@@ -1,11 +1,11 @@
 FROM circleci/ruby:2.7.1
 
 ENV DOCKERIZE_VERSION 0.6.1
-ENV NODE_VERSION 12.16.0
+ENV NODE_VERSION 12.16.3
 ENV NVM_DIR /home/circleci/.nvm
 
 RUN mkdir $NVM_DIR \
-    && curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.2/install.sh | bash \
+    && curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.3/install.sh | bash \
     && . $NVM_DIR/nvm.sh \
     && nvm install $NODE_VERSION && nvm alias default $NODE_VERSION
 
